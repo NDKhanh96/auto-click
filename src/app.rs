@@ -16,7 +16,9 @@ pub fn App() -> impl IntoView {
         <main class="">
             <h1>"Welcome to Tauri + Leptos"</h1>
             <p>"Click on the Tauri and Leptos logos to learn more."</p>
-            <button type="" class="bg-blue-500" >"Greet"</button>
+            <button type="" class="bg-blue-500">
+                "Greet"
+            </button>
         </main>
     }
 }

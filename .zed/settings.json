@@ -4,4 +4,13 @@
       "language_servers": ["tailwindcss-language-server"],
     },
   },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "cargo": {
+          "allFeatures": true,
+        },
+      },
+    },
+  },
 }

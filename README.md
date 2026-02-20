@@ -36,3 +36,18 @@ Trong quá trình development, bạn **bắt buộc phải chạy đồng thời
 - Một lệnh để chạy ứng dụng
 
 Nếu chỉ chạy một trong hai lệnh, giao diện sẽ không nhận được các class Tailwind mới hoặc app sẽ không khởi động đúng.
+
+---
+
+## 🧹 Format mã nguồn Leptos với leptosfmt
+
+Để format code trong các macro `view!` của Leptos (giúp code sạch, dễ đọc hơn), bạn có thể sử dụng công cụ **leptosfmt**:
+
+```bash
+leptosfmt ./**/*.rs
+```
+
+- Lệnh này sẽ tự động format tất cả các file Rust trong dự án, bao gồm cả code bên trong macro `view!`.
+- Đảm bảo bạn đã có `leptosfmt` trong môi trường phát triển (nếu dùng Nix, đã được cài sẵn qua `pkgs.leptosfmt`).
+
+Tham khảo thêm: [leptosfmt trên GitHub](https://github.com/leptos-rs/leptosfmt)

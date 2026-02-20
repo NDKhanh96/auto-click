@@ -1,5 +1,20 @@
 {
   "emmet.includeLanguages": {
     "rust": "html"
-  }
+  },
+  "cSpell.words": [
+    "bindgen",
+    "cdylib",
+    "leptos",
+    "MOUSEEVENTF",
+    "MOUSEINPUT",
+    "ndkhanh",
+    "oxalica",
+    "pkgs",
+    "rlib",
+    "rustc",
+    "serde",
+    "staticlib",
+    "tauri"
+  ]
 }
