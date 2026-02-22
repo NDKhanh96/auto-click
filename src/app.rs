@@ -1,24 +1,41 @@
-use leptos::task::spawn_local;
-use leptos::{ev::SubmitEvent, prelude::*};
+use crate::hooks::mouse::use_mouse_listener;
+use leptos::prelude::*;
+use wasm_bindgen::prelude::*;
 
-use crate::api::mouse::click_fixed;
+/**
+ * Để dùng dc log cần phần này
+ *
+ * Cânf import use wasm_bindgen::prelude::*;
+ *
+ * Cách dùng:
+ * - log(variant)
+ */
+#[wasm_bindgen]
+extern "C" {
+    #[wasm_bindgen(js_namespace = console)]
+    fn log(s: &JsValue);
+}
 
 #[component]
 pub fn App() -> impl IntoView {
-    let greet = move |ev: SubmitEvent| {
-        ev.prevent_default();
-        spawn_local(async move {
-            let _ = click_fixed(1486, 1074).await;
-        });
-    };
+    let position = RwSignal::new((0, 0));
+
+    use_mouse_listener(position);
+    Effect::new(move |_| {
+        // Truy cập trực tiếp signal trong closure
+        let (x, y) = position.get();
+        log(&format!("App position: x={}, y={}", x, y).into());
+    });
 
     view! {
-        <main class="">
-            <h1>"Welcome to Tauri + Leptos"</h1>
-            <p>"Click on the Tauri and Leptos logos to learn more."</p>
-            <button type="" class="bg-blue-500">
-                "Greet"
-            </button>
-        </main>
+        <div class="p-4">
+            <h1>"Mouse Position"</h1>
+            <p>
+                {move || {
+                    let (x, y) = position.get();
+                    format!("X: {}, Y: {}", x, y)
+                }}
+            </p>
+        </div>
     }
 }

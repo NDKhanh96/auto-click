@@ -18,3 +18,17 @@ pub async fn click_fixed(x: i32, y: i32) -> Result<(), JsValue> {
 
     Ok(())
 }
+
+pub async fn start_mouse_hook() -> Result<(), JsValue> {
+    let _ = invoke("start_mouse_hook_command", JsValue::NULL).await;
+    Ok(())
+}
+
+pub async fn stop_mouse_hook() -> Result<(), JsValue> {
+    let _ = invoke("stop_mouse_hook_command", JsValue::NULL).await;
+    Ok(())
+}
+
+// pub async fn get_cursor_pos() -> Result<(i32, i32), JsValue> {
+//     invoke("handle_get_pos", JsValue::NULL).await
+// }
