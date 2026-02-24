@@ -25,22 +25,29 @@
             "rust-src"
             "rust-analyzer"
           ];
+          targets = [ "wasm32-unknown-unknown" ];
         };
       in
       {
         devShells.default = pkgs.mkShell {
           buildInputs = [
             rustToolchain
+            pkgs.nodejs_24
+            pkgs.yarn
             pkgs.leptosfmt
             pkgs.nil
+            pkgs.cargo-tauri
+            pkgs.trunk
           ];
 
           RUST_BACKTRACE = "1";
 
           shellHook = ''
-            echo "🦀 Rust dev environment"
+            echo "🦀 Rust + Tauri dev environment"
             rustc --version
             cargo --version
+            node --version
+            yarn --version
           '';
         };
       }

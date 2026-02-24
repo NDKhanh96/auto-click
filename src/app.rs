@@ -5,7 +5,7 @@ use wasm_bindgen::prelude::*;
 /**
  * Để dùng dc log cần phần này
  *
- * Cânf import use wasm_bindgen::prelude::*;
+ * Cần import use wasm_bindgen::prelude::*;
  *
  * Cách dùng:
  * - log(variant)

@@ -6,3 +6,6 @@
 # Direnv
 .direnv/
 .envrc
+
+# CSS
+styles.generated.css
